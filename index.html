@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интерактивное руководство по Git и GitHub в VS Code</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header class="app-header">
+        <div class="header-container">
+            <h1>Git & GitHub <span class="accent-text">Pro Glossary (External JSON)</span></h1>
+            <p class="subtitle">Интерактивный сайдбар-справочник с загрузкой данных из внешнего файла data.json</p>
+            
+            <div class="search-bar-container">
+                <input type="text" id="search-input" placeholder="Поиск команды по названию или описанию...">
+            </div>
+        </div>
+    </header>
+
+    <main class="app-main">
+        <div class="app-layout">
+            <!-- САЙДБАР С КАТЕГОРИЯМИ -->
+            <aside class="app-sidebar">
+                <section class="filters-section">
+                    <h3 class="section-title">Категории глоссария</h3>
+                    <div class="filter-buttons" id="filter-buttons-container">
+                        <button class="filter-btn active" data-category="all">Все команды</button>
+                        <button class="filter-btn" data-category="init-clone">Инициализация</button>
+                        <button class="filter-btn" data-category="branches">Ветвление</button>
+                        <button class="filter-btn" data-category="save">Фиксация и Правки</button>
+                        <button class="filter-btn" data-category="sync">Синхронизация</button>
+                        <button class="filter-btn" data-category="merge-stash">Слияния и Stash</button>
+                        <button class="filter-btn" data-category="search-grep">Поиск по коду</button>
+                        <button class="filter-btn" data-category="debug-rescue" style="border-left: 3px solid #ef4444;">Отладка и Спасение 🔥</button>
+                        <button class="filter-btn" data-category="info-tags">Логи и Теги</button>
+                        <button class="filter-btn" data-category="config-admin">Конфигурация</button>
+                        <button class="filter-btn" data-category="github-cli" style="border-left: 3px solid #10b981;">GitHub CLI (gh)</button>
+                    </div>
+                </section>
+            </aside>
+
+            <!-- ОСНОВНОЙ КОНТЕНТ -->
+            <section class="commands-section">
+                <div class="section-header">
+                    <h2 id="current-category-title">Все команды</h2>
+                    <span class="counter" id="commands-counter">Показано: 0</span>
+                </div>
+                
+                <div class="commands-grid" id="commands-container">
+                    <div class="loading">Загрузка данных из внешнего JSON файла...</div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer class="app-footer">
+        <p>© 2026 Интерактивный Git-Справочник. Полная база данных в файле data.json.</p>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>

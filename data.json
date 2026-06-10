@@ -1,0 +1,1742 @@
+[
+    {
+        "id": "git-init",
+        "command": "git init",
+        "category": "init-clone",
+        "category_ru": "Инициализация и Клонирование",
+        "description": "Создаёт новый локальный репозиторий Git в текущей папке.",
+        "why_when": "Используется один раз в начале проекта, когда вы создаёте его с нуля на своём компьютере.",
+        "terminal_algorithm": [
+            "Перейдите в папку проекта: `cd путь/к/проекту`",
+            "Выполните: `git init`"
+        ],
+        "vscode_algorithm": [
+            "Вкладка 'Source Control' (`Ctrl+Shift+G`) → кнопка 'Initialize Repository'."
+        ]
+    },
+    {
+        "id": "git-clone",
+        "command": "git clone <url>",
+        "category": "init-clone",
+        "category_ru": "Инициализация и Клонирование",
+        "description": "Копирует существующий удалённый репозиторий на локальный компьютер.",
+        "why_when": "Когда проект уже есть на GitHub и вам нужна его локальная копия.",
+        "terminal_algorithm": [
+            "`git clone https://github.com/user/repo.git`"
+        ],
+        "vscode_algorithm": [
+            "`Ctrl+Shift+P` → 'Git: Clone' → вставьте URL."
+        ]
+    },
+    {
+        "id": "git-clone-depth",
+        "command": "git clone --depth 1 <url>",
+        "category": "init-clone",
+        "category_ru": "Инициализация и Клонирование",
+        "description": "Поверхностное клонирование — скачивает только последний коммит без всей истории.",
+        "why_when": "Когда репозиторий огромный, а вам нужен только актуальный код для сборки.",
+        "terminal_algorithm": [
+            "`git clone --depth 1 https://github.com/user/repo.git`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-clone-branch",
+        "command": "git clone --branch <ветка> <url>",
+        "category": "init-clone",
+        "category_ru": "Инициализация и Клонирование",
+        "description": "Клонирует репозиторий и сразу переключается на указанную ветку.",
+        "why_when": "Когда нужна конкретная ветка (не main), например dev или release.",
+        "terminal_algorithm": [
+            "`git clone --branch dev https://github.com/user/repo.git`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-clone-mirror",
+        "command": "git clone --mirror <url>",
+        "category": "init-clone",
+        "category_ru": "Инициализация и Клонирование",
+        "description": "Создаёт зеркальную копию репозитория со всеми ветками и тегами.",
+        "why_when": "Для создания полного бэкапа или переноса репозитория на другой хостинг.",
+        "terminal_algorithm": [
+            "`git clone --mirror https://github.com/user/repo.git`",
+            "Для пуша на новый хостинг: `git push --mirror https://newhost.com/repo.git`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-sparse-checkout-init",
+        "command": "git sparse-checkout init",
+        "category": "init-clone",
+        "category_ru": "Инициализация и Клонирование",
+        "description": "Включает режим разреженного извлечения файлов из монорепозитория.",
+        "why_when": "Когда в репозитории сотни проектов, а нужна только одна папка.",
+        "terminal_algorithm": [
+            "`git sparse-checkout init --cone`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-sparse-checkout-set",
+        "command": "git sparse-checkout set <dir>",
+        "category": "init-clone",
+        "category_ru": "Инициализация и Клонирование",
+        "description": "Указывает конкретную папку для извлечения при sparse-checkout.",
+        "why_when": "Используется сразу после `git sparse-checkout init`.",
+        "terminal_algorithm": [
+            "`git sparse-checkout set src/frontend`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-submodule-add",
+        "command": "git submodule add <url>",
+        "category": "init-clone",
+        "category_ru": "Инициализация и Клонирование",
+        "description": "Добавляет другой репозиторий как подмодуль внутри текущего.",
+        "why_when": "Когда нужно подключить стороннюю библиотеку как вложенный репозиторий.",
+        "terminal_algorithm": [
+            "`git submodule add https://github.com/lib/repo.git libs/repo`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-submodule-init",
+        "command": "git submodule init",
+        "category": "init-clone",
+        "category_ru": "Инициализация и Клонирование",
+        "description": "Инициализирует конфигурацию подмодулей после клонирования репозитория.",
+        "why_when": "После `git clone` — подмодули не скачиваются автоматически.",
+        "terminal_algorithm": [
+            "`git submodule init`",
+            "`git submodule update`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-submodule-update",
+        "command": "git submodule update",
+        "category": "init-clone",
+        "category_ru": "Инициализация и Клонирование",
+        "description": "Обновляет подмодули до коммитов, зафиксированных в родительском репозитории.",
+        "why_when": "После `git pull`, если в проекте есть подмодули и они изменились.",
+        "terminal_algorithm": [
+            "`git submodule update --init --recursive`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-remote-add",
+        "command": "git remote add origin <url>",
+        "category": "init-clone",
+        "category_ru": "Инициализация и Клонирование",
+        "description": "Привязывает локальный репозиторий к удалённому серверу (GitHub).",
+        "why_when": "После `git init` — чтобы можно было делать push/pull.",
+        "terminal_algorithm": [
+            "`git remote add origin https://github.com/user/repo.git`",
+            "`git push -u origin main`"
+        ],
+        "vscode_algorithm": [
+            "Source Control → '...' → Remote → Add Remote."
+        ]
+    },
+    {
+        "id": "git-archive",
+        "command": "git archive --format=zip HEAD",
+        "category": "init-clone",
+        "category_ru": "Инициализация и Клонирование",
+        "description": "Создаёт ZIP-архив текущего состояния репозитория без папки .git.",
+        "why_when": "Для создания чистого архива релиза без истории Git.",
+        "terminal_algorithm": [
+            "`git archive --format=zip HEAD -o release.zip`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-branch",
+        "command": "git branch",
+        "category": "branches",
+        "category_ru": "Ветвление",
+        "description": "Показывает список всех локальных веток. Активная ветка отмечена звёздочкой.",
+        "why_when": "Для проверки текущей активной ветки и списка всех существующих.",
+        "terminal_algorithm": [
+            "`git branch`"
+        ],
+        "vscode_algorithm": [
+            "Имя текущей ветки всегда написано в левом нижнем углу VS Code."
+        ]
+    },
+    {
+        "id": "git-branch-a",
+        "command": "git branch -a",
+        "category": "branches",
+        "category_ru": "Ветвление",
+        "description": "Показывает все ветки — и локальные, и удалённые.",
+        "why_when": "Когда нужно увидеть полный список веток включая серверные.",
+        "terminal_algorithm": [
+            "`git branch -a`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-branch-r",
+        "command": "git branch -r",
+        "category": "branches",
+        "category_ru": "Ветвление",
+        "description": "Показывает только удалённые ветки (remote-tracking).",
+        "why_when": "Для просмотра всех веток, существующих на сервере.",
+        "terminal_algorithm": [
+            "`git branch -r`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-branch-vv",
+        "command": "git branch -vv",
+        "category": "branches",
+        "category_ru": "Ветвление",
+        "description": "Показывает ветки с информацией о последнем коммите и связанной удалённой ветке.",
+        "why_when": "Для проверки, какие локальные ветки отслеживают удалённые.",
+        "terminal_algorithm": [
+            "`git branch -vv`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-switch-c",
+        "command": "git switch -c <имя>",
+        "category": "branches",
+        "category_ru": "Ветвление",
+        "description": "Создаёт новую ветку и сразу переключается на неё.",
+        "why_when": "Главное правило: под каждую задачу — новая ветка, чтобы main оставался чистым.",
+        "terminal_algorithm": [
+            "`git switch -c feature/новая-фича`"
+        ],
+        "vscode_algorithm": [
+            "Клик по имени ветки внизу → '+ Create new branch...' → введите имя."
+        ]
+    },
+    {
+        "id": "git-switch",
+        "command": "git switch <имя>",
+        "category": "branches",
+        "category_ru": "Ветвление",
+        "description": "Переключает рабочую среду на другую существующую ветку.",
+        "why_when": "Когда нужно переключиться на другую задачу или вернуться в main.",
+        "terminal_algorithm": [
+            "`git switch main`"
+        ],
+        "vscode_algorithm": [
+            "Клик по имени ветки внизу → выберите ветку из списка."
+        ]
+    },
+    {
+        "id": "git-switch-minus",
+        "command": "git switch -",
+        "category": "branches",
+        "category_ru": "Ветвление",
+        "description": "Переключает на предыдущую ветку (как кнопка «Назад»).",
+        "why_when": "Быстрое переключение между двумя ветками без запоминания имени.",
+        "terminal_algorithm": [
+            "`git switch -`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-branch-d",
+        "command": "git branch -d <имя>",
+        "category": "branches",
+        "category_ru": "Ветвление",
+        "description": "Безопасно удаляет локальную ветку. Откажет, если ветка ещё не влита.",
+        "why_when": "Очистка репозитория после завершения задачи.",
+        "terminal_algorithm": [
+            "`git branch -d feature/старая-фича`"
+        ],
+        "vscode_algorithm": [
+            "Source Control → ПКМ по ветке → 'Delete Branch'."
+        ]
+    },
+    {
+        "id": "git-branch-D",
+        "command": "git branch -D <имя>",
+        "category": "branches",
+        "category_ru": "Ветвление",
+        "description": "Принудительно удаляет ветку, даже если она не влита в другую.",
+        "why_when": "Когда работу в ветке решили отменить и она больше не нужна.",
+        "terminal_algorithm": [
+            "`git branch -D feature/отменённая-фича`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал (опасная операция)."
+        ]
+    },
+    {
+        "id": "git-branch-m",
+        "command": "git branch -m <имя>",
+        "category": "branches",
+        "category_ru": "Ветвление",
+        "description": "Переименовывает текущую активную ветку.",
+        "why_when": "Если опечатались в имени ветки при создании.",
+        "terminal_algorithm": [
+            "`git branch -m feature/правильное-имя`"
+        ],
+        "vscode_algorithm": [
+            "ПКМ по ветке → 'Rename Branch...'."
+        ]
+    },
+    {
+        "id": "git-branch-merged",
+        "command": "git branch --merged",
+        "category": "branches",
+        "category_ru": "Ветвление",
+        "description": "Показывает ветки, чей код уже слит с текущей веткой.",
+        "why_when": "Для поиска веток, которые можно безопасно удалить.",
+        "terminal_algorithm": [
+            "`git branch --merged`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-branch-no-merged",
+        "command": "git branch --no-merged",
+        "category": "branches",
+        "category_ru": "Ветвление",
+        "description": "Показывает ветки, которые ещё НЕ слиты с текущей.",
+        "why_when": "Проверка перед удалением: есть ли незавершённые ветки с кодом.",
+        "terminal_algorithm": [
+            "`git branch --no-merged`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-push-delete-branch",
+        "command": "git push origin --delete <ветка>",
+        "category": "branches",
+        "category_ru": "Ветвление",
+        "description": "Удаляет ветку на удалённом сервере (GitHub).",
+        "why_when": "После слияния Pull Request — чтобы очистить список веток на GitHub.",
+        "terminal_algorithm": [
+            "`git push origin --delete feature/старая-фича`"
+        ],
+        "vscode_algorithm": [
+            "Source Control → ПКМ по удалённой ветке → 'Delete Remote Branch'."
+        ]
+    },
+    {
+        "id": "git-worktree-add",
+        "command": "git worktree add <путь> <ветка>",
+        "category": "branches",
+        "category_ru": "Ветвление",
+        "description": "Создаёт вторую рабочую копию репозитория в другой папке на другой ветке.",
+        "why_when": "Когда нужно параллельно работать в двух ветках без переключения.",
+        "terminal_algorithm": [
+            "`git worktree add ../hotfix-work hotfix/urgent`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-worktree-list",
+        "command": "git worktree list",
+        "category": "branches",
+        "category_ru": "Ветвление",
+        "description": "Показывает список всех активных worktree (рабочих копий).",
+        "why_when": "Для контроля открытых параллельных рабочих окружений.",
+        "terminal_algorithm": [
+            "`git worktree list`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-worktree-remove",
+        "command": "git worktree remove <путь>",
+        "category": "branches",
+        "category_ru": "Ветвление",
+        "description": "Удаляет вспомогательную рабочую копию репозитория.",
+        "why_when": "После завершения работы в параллельной ветке через worktree.",
+        "terminal_algorithm": [
+            "`git worktree remove ../hotfix-work`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-checkout-track",
+        "command": "git checkout -b <имя> <remote>/<ветка>",
+        "category": "branches",
+        "category_ru": "Ветвление",
+        "description": "Создаёт локальную ветку на основе удалённой и сразу настраивает слежение.",
+        "why_when": "Когда коллега создал ветку на GitHub и вы хотите начать работу в ней локально.",
+        "terminal_algorithm": [
+            "`git checkout -b feature/ui origin/feature/ui`"
+        ],
+        "vscode_algorithm": [
+            "Клик по имени ветки внизу → выберите удалённую ветку из списка."
+        ]
+    },
+    {
+        "id": "git-branch-copy",
+        "command": "git branch --copy <новое-имя>",
+        "category": "branches",
+        "category_ru": "Ветвление",
+        "description": "Создаёт копию текущей ветки с новым именем, не удаляя исходную.",
+        "why_when": "Когда нужно сделать ответвление от текущей ветки как резервную копию.",
+        "terminal_algorithm": [
+            "`git branch --copy feature/backup`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-status",
+        "command": "git status",
+        "category": "save",
+        "category_ru": "Фиксация и Правки",
+        "description": "Показывает статус рабочей директории: изменённые, новые и подготовленные файлы.",
+        "why_when": "Всегда перед коммитом — для контроля что именно войдёт в снимок.",
+        "terminal_algorithm": [
+            "`git status`"
+        ],
+        "vscode_algorithm": [
+            "Все изменения автоматически видны в панели Source Control."
+        ]
+    },
+    {
+        "id": "git-add-all",
+        "command": "git add .",
+        "category": "save",
+        "category_ru": "Фиксация и Правки",
+        "description": "Добавляет все изменённые и новые файлы в индекс (Staging Area).",
+        "why_when": "Подготовка всех файлов к созданию коммита.",
+        "terminal_algorithm": [
+            "`git add .` — все файлы",
+            "`git add src/app.js` — конкретный файл"
+        ],
+        "vscode_algorithm": [
+            "Нажмите '+' напротив секции 'Changes' или конкретного файла."
+        ]
+    },
+    {
+        "id": "git-add-patch",
+        "command": "git add -p",
+        "category": "save",
+        "category_ru": "Фиксация и Правки",
+        "description": "Интерактивное добавление — позволяет выбрать конкретные фрагменты файла для коммита.",
+        "why_when": "Когда в одном файле есть правки для разных коммитов и их нужно разделить.",
+        "terminal_algorithm": [
+            "`git add -p`",
+            "Нажмите `y` — добавить фрагмент, `n` — пропустить, `s` — разбить на меньшие."
+        ],
+        "vscode_algorithm": [
+            "В diff-просмотре файла нажмите '+' рядом с нужной строкой."
+        ]
+    },
+    {
+        "id": "git-commit",
+        "command": "git commit -m \"msg\"",
+        "category": "save",
+        "category_ru": "Фиксация и Правки",
+        "description": "Создаёт снимок (коммит) всех подготовленных изменений с сообщением.",
+        "why_when": "После завершения логического шага работы (сверстан блок, исправлен баг).",
+        "terminal_algorithm": [
+            "`git commit -m \"feat: добавить шапку сайта\"`"
+        ],
+        "vscode_algorithm": [
+            "Введите текст в поле 'Message' и нажмите синюю кнопку 'Commit'."
+        ]
+    },
+    {
+        "id": "git-commit-am",
+        "command": "git commit -am \"msg\"",
+        "category": "save",
+        "category_ru": "Фиксация и Правки",
+        "description": "Индексирует изменённые отслеживаемые файлы и создаёт коммит за одно действие.",
+        "why_when": "Экономия времени — пропуск `git add`. Не работает для абсолютно новых файлов!",
+        "terminal_algorithm": [
+            "`git commit -am \"fix: исправить опечатку\"`"
+        ],
+        "vscode_algorithm": [
+            "VS Code делает это при клике 'Commit' при пустом индексе."
+        ]
+    },
+    {
+        "id": "git-commit-amend",
+        "command": "git commit --amend",
+        "category": "save",
+        "category_ru": "Фиксация и Правки",
+        "description": "Изменяет последний коммит: добавляет файлы или правит сообщение.",
+        "why_when": "Сделали коммит, но забыли файл или опечатались в сообщении.",
+        "terminal_algorithm": [
+            "`git add .` — добавьте забытый файл",
+            "`git commit --amend -m \"Исправленный текст\"`"
+        ],
+        "vscode_algorithm": [
+            "Стрелочка рядом с 'Commit' → 'Commit (Amend)'."
+        ]
+    },
+    {
+        "id": "git-commit-no-verify",
+        "command": "git commit --no-verify",
+        "category": "save",
+        "category_ru": "Фиксация и Правки",
+        "description": "Пропускает pre-commit хуки (линтеры, тесты) при создании коммита.",
+        "why_when": "Срочный hotfix, а линтер блокирует коммит из-за мелкого нарушения.",
+        "terminal_algorithm": [
+            "`git commit --no-verify -m \"hotfix: срочный патч\"`"
+        ],
+        "vscode_algorithm": [
+            "Меню '...' → Commit → 'Commit (No Verify)'."
+        ]
+    },
+    {
+        "id": "git-commit-signed",
+        "command": "git commit -S -m \"msg\"",
+        "category": "save",
+        "category_ru": "Фиксация и Правки",
+        "description": "Создаёт криптографически подписанный коммит (GPG).",
+        "why_when": "Доказывает подлинность автора. На GitHub появляется плашка 'Verified'.",
+        "terminal_algorithm": [
+            "`git commit -S -m \"feat: verified commit\"`"
+        ],
+        "vscode_algorithm": [
+            "Требует настройки GPG-ключа. Включается через `git.enableGPGSigning`."
+        ]
+    },
+    {
+        "id": "git-restore-staged",
+        "command": "git restore --staged <file>",
+        "category": "save",
+        "category_ru": "Фиксация и Правки",
+        "description": "Убирает файл из индекса (Staging Area) обратно в рабочую папку.",
+        "why_when": "Случайно добавили лишний файл через `git add .` — нужно его убрать.",
+        "terminal_algorithm": [
+            "`git restore --staged secret.json`"
+        ],
+        "vscode_algorithm": [
+            "Нажмите '-' напротив файла в разделе 'Staged Changes'."
+        ]
+    },
+    {
+        "id": "git-restore",
+        "command": "git restore <file>",
+        "category": "save",
+        "category_ru": "Фиксация и Правки",
+        "description": "БЕЗВОЗВРАТНО отменяет все незакоммиченные изменения в файле.",
+        "why_when": "Сломали код в файле и хотите вернуть его к состоянию последнего коммита.",
+        "terminal_algorithm": [
+            "`git restore app.js`"
+        ],
+        "vscode_algorithm": [
+            "Иконка стрелочки ('Discard Changes') напротив файла."
+        ]
+    },
+    {
+        "id": "git-rm-cached",
+        "command": "git rm --cached <file>",
+        "category": "save",
+        "category_ru": "Фиксация и Правки",
+        "description": "Удаляет файл из репозитория, но оставляет его физически на диске.",
+        "why_when": "Закоммитили файл, который должен быть в .gitignore (например, .env).",
+        "terminal_algorithm": [
+            "`git rm --cached .env`",
+            "Добавьте `.env` в `.gitignore`",
+            "`git commit -m \"chore: untrack .env\"`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-rm",
+        "command": "git rm <file>",
+        "category": "save",
+        "category_ru": "Фиксация и Правки",
+        "description": "Удаляет файл и из репозитория, и физически с диска.",
+        "why_when": "Для удаления файла так, чтобы Git правильно отследил это удаление.",
+        "terminal_algorithm": [
+            "`git rm старый-файл.js`",
+            "`git commit -m \"chore: remove old file\"`"
+        ],
+        "vscode_algorithm": [
+            "Удаление файла в проводнике VS Code — Git сам засечёт изменение."
+        ]
+    },
+    {
+        "id": "git-mv",
+        "command": "git mv <old> <new>",
+        "category": "save",
+        "category_ru": "Фиксация и Правки",
+        "description": "Перемещает или переименовывает файл с сохранением Git-истории.",
+        "why_when": "Чтобы Git понял, что файл переименован, а не удалён и создан заново.",
+        "terminal_algorithm": [
+            "`git mv main.js src/main.js`"
+        ],
+        "vscode_algorithm": [
+            "VS Code делает это автоматически при переименовании файла в проводнике."
+        ]
+    },
+    {
+        "id": "git-diff",
+        "command": "git diff",
+        "category": "save",
+        "category_ru": "Фиксация и Правки",
+        "description": "Показывает разницу между рабочей папкой и индексом (незакоммиченные изменения).",
+        "why_when": "Для просмотра что именно изменилось в файлах до добавления в индекс.",
+        "terminal_algorithm": [
+            "`git diff` — все изменения",
+            "`git diff src/app.js` — конкретный файл"
+        ],
+        "vscode_algorithm": [
+            "Клик по изменённому файлу в Source Control — откроется diff-просмотр."
+        ]
+    },
+    {
+        "id": "git-diff-staged",
+        "command": "git diff --staged",
+        "category": "save",
+        "category_ru": "Фиксация и Правки",
+        "description": "Показывает разницу между индексом и последним коммитом.",
+        "why_when": "Финальная проверка — что именно войдёт в следующий коммит.",
+        "terminal_algorithm": [
+            "`git diff --staged`"
+        ],
+        "vscode_algorithm": [
+            "Клик по файлу в разделе 'Staged Changes'."
+        ]
+    },
+    {
+        "id": "git-clean-fd",
+        "command": "git clean -fd",
+        "category": "save",
+        "category_ru": "Фиксация и Правки",
+        "description": "Удаляет все неотслеживаемые файлы и папки из рабочей директории.",
+        "why_when": "Очистка проекта от мусора (временных файлов, артефактов сборки).",
+        "terminal_algorithm": [
+            "`git clean -n` — сначала посмотреть что будет удалено",
+            "`git clean -fd` — выполнить удаление"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал (опасно — удаление необратимо)."
+        ]
+    },
+    {
+        "id": "git-ls-files",
+        "command": "git ls-files",
+        "category": "save",
+        "category_ru": "Фиксация и Правки",
+        "description": "Показывает список всех файлов, отслеживаемых Git.",
+        "why_when": "Для проверки какие именно файлы находятся под контролем версий.",
+        "terminal_algorithm": [
+            "`git ls-files`",
+            "`git ls-files --others` — показать неотслеживаемые файлы"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-assume-unchanged",
+        "command": "git update-index --assume-unchanged <file>",
+        "category": "save",
+        "category_ru": "Фиксация и Правки",
+        "description": "Указывает Git игнорировать локальные изменения в файле, не удаляя его из репозитория.",
+        "why_when": "Когда нужно локально изменить конфиг (пути, порты), не засоряя коммиты.",
+        "terminal_algorithm": [
+            "`git update-index --assume-unchanged config/local.json`",
+            "Отменить: `git update-index --no-assume-unchanged config/local.json`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-push",
+        "command": "git push origin <ветка>",
+        "category": "sync",
+        "category_ru": "Синхронизация",
+        "description": "Отправляет локальные коммиты текущей ветки на удалённый сервер.",
+        "why_when": "После завершения работы — для бэкапа в облаке или отправки на код-ревью.",
+        "terminal_algorithm": [
+            "`git push origin feature/slider`",
+            "При первом пуше: `git push -u origin feature/slider`"
+        ],
+        "vscode_algorithm": [
+            "Синяя кнопка 'Publish Branch' или 'Sync Changes'."
+        ]
+    },
+    {
+        "id": "git-push-force-lease",
+        "command": "git push --force-with-lease",
+        "category": "sync",
+        "category_ru": "Синхронизация",
+        "description": "Безопасный принудительный push — отклонит пуш если на сервере есть чужие коммиты.",
+        "why_when": "После rebase или amend — для перезаписи истории с защитой от затирания чужой работы.",
+        "terminal_algorithm": [
+            "`git push --force-with-lease`"
+        ],
+        "vscode_algorithm": [
+            "Используется в VS Code по умолчанию при 'Push (Force)'."
+        ]
+    },
+    {
+        "id": "git-push-head",
+        "command": "git push -u origin HEAD",
+        "category": "sync",
+        "category_ru": "Синхронизация",
+        "description": "Публикует текущую ветку на сервере, автоматически создавая её там же.",
+        "why_when": "Не нужно помнить и вводить имя ветки — HEAD всегда указывает на текущую.",
+        "terminal_algorithm": [
+            "`git push -u origin HEAD`"
+        ],
+        "vscode_algorithm": [
+            "Кнопка 'Publish Branch'."
+        ]
+    },
+    {
+        "id": "git-pull",
+        "command": "git pull",
+        "category": "sync",
+        "category_ru": "Синхронизация",
+        "description": "Скачивает изменения с сервера и сразу вливает их в текущую ветку.",
+        "why_when": "Синхронизация перед началом работы — чтобы не работать на устаревшем коде.",
+        "terminal_algorithm": [
+            "`git pull`"
+        ],
+        "vscode_algorithm": [
+            "Кнопка синхронизации (круговые стрелочки) в нижнем углу."
+        ]
+    },
+    {
+        "id": "git-pull-rebase",
+        "command": "git pull --rebase",
+        "category": "sync",
+        "category_ru": "Синхронизация",
+        "description": "Скачивает обновления и делает rebase локальных коммитов поверх них.",
+        "why_when": "Избавляет историю от лишних коммитов-слияний вида 'Merge branch main into...'.",
+        "terminal_algorithm": [
+            "`git pull --rebase`"
+        ],
+        "vscode_algorithm": [
+            "Меню '...' → Pull, Push → 'Pull (Rebase)'."
+        ]
+    },
+    {
+        "id": "git-fetch-prune",
+        "command": "git fetch --prune",
+        "category": "sync",
+        "category_ru": "Синхронизация",
+        "description": "Скачивает обновления и удаляет локальные ссылки на ветки, удалённые на сервере.",
+        "why_when": "Чтобы список веток не засорялся 'мёртвыми' ссылками на удалённые ветки.",
+        "terminal_algorithm": [
+            "`git fetch --prune`"
+        ],
+        "vscode_algorithm": [
+            "Настройка `git.pruneOnFetch: true`."
+        ]
+    },
+    {
+        "id": "git-fetch-all",
+        "command": "git fetch --all",
+        "category": "sync",
+        "category_ru": "Синхронизация",
+        "description": "Скачивает обновления со всех удалённых серверов одновременно.",
+        "why_when": "Когда репозиторий имеет несколько remote (origin, upstream) и нужно обновить все.",
+        "terminal_algorithm": [
+            "`git fetch --all`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-pull-ff-only",
+        "command": "git pull --ff-only",
+        "category": "sync",
+        "category_ru": "Синхронизация",
+        "description": "Вливает изменения только если возможна перемотка (fast-forward), иначе отказывает.",
+        "why_when": "Безопасная синхронизация — никогда не создаст коммит-слияния автоматически.",
+        "terminal_algorithm": [
+            "`git pull --ff-only`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-push-tags",
+        "command": "git push --tags",
+        "category": "sync",
+        "category_ru": "Синхронизация",
+        "description": "Публикует все локальные теги на удалённый сервер.",
+        "why_when": "После создания тегов версий — чтобы они появились на GitHub.",
+        "terminal_algorithm": [
+            "`git push --tags`",
+            "Один тег: `git push origin v1.0.0`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-push-delete-remote",
+        "command": "git push origin --delete <ветка>",
+        "category": "sync",
+        "category_ru": "Синхронизация",
+        "description": "Удаляет ветку на удалённом сервере.",
+        "why_when": "После слияния Pull Request для очистки удалённых веток.",
+        "terminal_algorithm": [
+            "`git push origin --delete feature/done`"
+        ],
+        "vscode_algorithm": [
+            "Source Control → ПКМ по удалённой ветке → 'Delete Branch'."
+        ]
+    },
+    {
+        "id": "git-remote-v",
+        "command": "git remote -v",
+        "category": "sync",
+        "category_ru": "Синхронизация",
+        "description": "Показывает URL всех настроенных удалённых серверов.",
+        "why_when": "Для проверки куда именно будет отправлен push.",
+        "terminal_algorithm": [
+            "`git remote -v`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-ls-remote",
+        "command": "git ls-remote",
+        "category": "sync",
+        "category_ru": "Синхронизация",
+        "description": "Показывает список всех веток и тегов на удалённом сервере.",
+        "why_when": "Для просмотра удалённого репозитория без его клонирования.",
+        "terminal_algorithm": [
+            "`git ls-remote origin`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-merge",
+        "command": "git merge <ветка>",
+        "category": "merge-stash",
+        "category_ru": "Слияния и Stash",
+        "description": "Вливает коммиты из указанной ветки в текущую.",
+        "why_when": "Финальный шаг разработки фичи — влить её в main после завершения работы.",
+        "terminal_algorithm": [
+            "Переключитесь на целевую ветку: `git switch main`",
+            "Выполните слияние: `git merge feature/slider`"
+        ],
+        "vscode_algorithm": [
+            "Source Control → '...' → Branch → 'Merge Branch...'."
+        ]
+    },
+    {
+        "id": "git-merge-squash",
+        "command": "git merge --squash <ветка>",
+        "category": "merge-stash",
+        "category_ru": "Слияния и Stash",
+        "description": "Схлопывает все коммиты ветки в один блок изменений без слияния.",
+        "why_when": "Было 40 черновых коммитов — хотите влить их в main как один чистый коммит.",
+        "terminal_algorithm": [
+            "`git merge --squash feature/slider`",
+            "`git commit -m \"feat: добавить слайдер\"`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-merge-abort",
+        "command": "git merge --abort",
+        "category": "merge-stash",
+        "category_ru": "Слияния и Stash",
+        "description": "Полностью отменяет начатый процесс слияния и возвращает всё назад.",
+        "why_when": "Возникло слишком много конфликтов — проще остановиться и разобраться.",
+        "terminal_algorithm": [
+            "`git merge --abort`"
+        ],
+        "vscode_algorithm": [
+            "Палитра команд → 'Git: Abort Merge'."
+        ]
+    },
+    {
+        "id": "git-merge-no-ff",
+        "command": "git merge --no-ff <ветка>",
+        "category": "merge-stash",
+        "category_ru": "Слияния и Stash",
+        "description": "Всегда создаёт коммит-слияния, даже если возможна перемотка (fast-forward).",
+        "why_when": "Сохраняет явную информацию в истории о том, когда и что было слито.",
+        "terminal_algorithm": [
+            "`git merge --no-ff feature/slider`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-rebase",
+        "command": "git rebase <ветка>",
+        "category": "merge-stash",
+        "category_ru": "Слияния и Stash",
+        "description": "Переносит коммиты текущей ветки поверх указанной, создавая линейную историю.",
+        "why_when": "Обновление фича-ветки последними коммитами из main без коммитов-слияний.",
+        "terminal_algorithm": [
+            "`git switch feature/slider`",
+            "`git rebase main`"
+        ],
+        "vscode_algorithm": [
+            "Source Control → '...' → Branch → 'Rebase Branch...'."
+        ]
+    },
+    {
+        "id": "git-rebase-interactive",
+        "command": "git rebase -i HEAD~<n>",
+        "category": "merge-stash",
+        "category_ru": "Слияния и Stash",
+        "description": "Интерактивный rebase — позволяет переписать, объединить или удалить последние N коммитов.",
+        "why_when": "Для приведения истории в порядок перед слиянием: убрать черновые коммиты.",
+        "terminal_algorithm": [
+            "`git rebase -i HEAD~5` — изменить последние 5 коммитов",
+            "В редакторе: `pick` → `squash` (объединить), `drop` (удалить), `reword` (переименовать)."
+        ],
+        "vscode_algorithm": [
+            "Расширение GitLens → Git rebase."
+        ]
+    },
+    {
+        "id": "git-rebase-abort",
+        "command": "git rebase --abort",
+        "category": "merge-stash",
+        "category_ru": "Слияния и Stash",
+        "description": "Отменяет начатый rebase и возвращает ветку к исходному состоянию.",
+        "why_when": "Возникли конфликты при rebase и вы хотите всё отменить.",
+        "terminal_algorithm": [
+            "`git rebase --abort`"
+        ],
+        "vscode_algorithm": [
+            "Палитра команд → 'Git: Abort Rebase'."
+        ]
+    },
+    {
+        "id": "git-rebase-continue",
+        "command": "git rebase --continue",
+        "category": "merge-stash",
+        "category_ru": "Слияния и Stash",
+        "description": "Продолжает rebase после разрешения конфликтов.",
+        "why_when": "После того как вы вручную исправили конфликт и сделали `git add`.",
+        "terminal_algorithm": [
+            "Исправьте конфликты в файлах",
+            "`git add .`",
+            "`git rebase --continue`"
+        ],
+        "vscode_algorithm": [
+            "Кнопка 'Continue' в панели Source Control."
+        ]
+    },
+    {
+        "id": "git-cherry-pick",
+        "command": "git cherry-pick <hash>",
+        "category": "merge-stash",
+        "category_ru": "Слияния и Stash",
+        "description": "Применяет изменения из конкретного коммита другой ветки к текущей.",
+        "why_when": "Нужен только один конкретный баг-фикс из другой ветки, без всего остального.",
+        "terminal_algorithm": [
+            "`git log --oneline` — найдите нужный хеш коммита",
+            "`git cherry-pick a1b2c3d`"
+        ],
+        "vscode_algorithm": [
+            "GitLens → History → ПКМ по коммиту → 'Cherry Pick Commit'."
+        ]
+    },
+    {
+        "id": "git-stash-push-u",
+        "command": "git stash push -u",
+        "category": "merge-stash",
+        "category_ru": "Слияния и Stash",
+        "description": "Прячет все изменения (включая новые файлы) в заначку, очищая рабочую папку.",
+        "why_when": "Нужно срочно переключиться на другую задачу, не теряя текущие наработки.",
+        "terminal_algorithm": [
+            "`git stash push -u -m \"описание работы\"`"
+        ],
+        "vscode_algorithm": [
+            "Source Control → '...' → Stash → 'Stash (Include Untracked)'."
+        ]
+    },
+    {
+        "id": "git-stash-list",
+        "command": "git stash list",
+        "category": "merge-stash",
+        "category_ru": "Слияния и Stash",
+        "description": "Показывает список всех сохранённых заначек.",
+        "why_when": "Когда сделали несколько stash-сохранений и ищете нужное.",
+        "terminal_algorithm": [
+            "`git stash list`"
+        ],
+        "vscode_algorithm": [
+            "Раздел 'STASHES' на боковой панели GitLens."
+        ]
+    },
+    {
+        "id": "git-stash-pop",
+        "command": "git stash pop",
+        "category": "merge-stash",
+        "category_ru": "Слияния и Stash",
+        "description": "Восстанавливает последнюю заначку и удаляет её из списка.",
+        "why_when": "Возврат к прерванной работе после переключения на другую задачу.",
+        "terminal_algorithm": [
+            "`git stash pop` — последняя заначка",
+            "`git stash pop stash@{2}` — конкретная заначка"
+        ],
+        "vscode_algorithm": [
+            "Source Control → '...' → Stash → 'Pop Stash...'."
+        ]
+    },
+    {
+        "id": "git-reset-hard",
+        "command": "git reset --hard <hash>",
+        "category": "debug-rescue",
+        "category_ru": "Отладка и Спасение 🔥",
+        "description": "БЕЗВОЗВРАТНО уничтожает все текущие правки и откатывает проект к указанному коммиту.",
+        "why_when": "Код сломан окончательно — хотите вернуться к последней рабочей точке.",
+        "terminal_algorithm": [
+            "`git log --oneline` — найдите хеш нужного коммита",
+            "`git reset --hard a1b2c3d`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал. Действие необратимо!"
+        ]
+    },
+    {
+        "id": "git-reset-soft",
+        "command": "git reset --soft <hash>",
+        "category": "debug-rescue",
+        "category_ru": "Отладка и Спасение 🔥",
+        "description": "Отменяет коммиты, но сохраняет все изменения в индексе (готовыми к коммиту).",
+        "why_when": "Нужно переделать несколько последних коммитов в один, не теряя изменения.",
+        "terminal_algorithm": [
+            "`git reset --soft HEAD~3` — отменить последние 3 коммита",
+            "`git commit -m \"feat: объединённый коммит\"`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-reset-mixed",
+        "command": "git reset --mixed <hash>",
+        "category": "debug-rescue",
+        "category_ru": "Отладка и Спасение 🔥",
+        "description": "Отменяет коммиты и убирает изменения из индекса, оставляя их в рабочей папке.",
+        "why_when": "Когда нужно переосмыслить коммит — изменения остаются, но не в индексе.",
+        "terminal_algorithm": [
+            "`git reset HEAD~1` (--mixed по умолчанию)"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-reflog",
+        "command": "git reflog",
+        "category": "debug-rescue",
+        "category_ru": "Отладка и Спасение 🔥",
+        "description": "Журнал всех перемещений HEAD — включая удалённые ветки и сброшенные коммиты.",
+        "why_when": "Главный инструмент спасения. Восстанавливает коммиты даже после `reset --hard`.",
+        "terminal_algorithm": [
+            "`git reflog`",
+            "Найдите нужный хеш, например HEAD@{3}",
+            "`git reset --hard HEAD@{3}` — восстановиться"
+        ],
+        "vscode_algorithm": [
+            "GitLens → Timeline → можно увидеть историю HEAD."
+        ]
+    },
+    {
+        "id": "git-bisect-start",
+        "command": "git bisect start",
+        "category": "debug-rescue",
+        "category_ru": "Отладка и Спасение 🔥",
+        "description": "Начинает бинарный поиск коммита, введшего баг.",
+        "why_when": "Когда баг появился где-то в последних 100 коммитах и нужно найти виновника.",
+        "terminal_algorithm": [
+            "`git bisect start`",
+            "`git bisect bad` — текущий коммит плохой",
+            "`git bisect good v1.0` — указать известно-рабочий коммит",
+            "Git сам будет переключаться: вы отвечаете `good` или `bad`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-bisect-run",
+        "command": "git bisect run <скрипт>",
+        "category": "debug-rescue",
+        "category_ru": "Отладка и Спасение 🔥",
+        "description": "Полностью автоматический бинарный поиск — Git сам запускает скрипт-тест на каждом коммите.",
+        "why_when": "Есть тест, который падает на сломанных коммитах — автоматизируйте bisect.",
+        "terminal_algorithm": [
+            "`git bisect start`",
+            "`git bisect bad`",
+            "`git bisect good <рабочий-хеш>`",
+            "`git bisect run npm test`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-revert",
+        "command": "git revert <hash>",
+        "category": "debug-rescue",
+        "category_ru": "Отладка и Спасение 🔥",
+        "description": "Создаёт новый коммит, отменяющий изменения указанного коммита. История сохраняется.",
+        "why_when": "Безопасная отмена коммита в общей ветке (main) — не переписывает историю.",
+        "terminal_algorithm": [
+            "`git revert a1b2c3d`"
+        ],
+        "vscode_algorithm": [
+            "GitLens → History → ПКМ по коммиту → 'Revert Commit'."
+        ]
+    },
+    {
+        "id": "git-revert-no-commit",
+        "command": "git revert --no-commit <hash>",
+        "category": "debug-rescue",
+        "category_ru": "Отладка и Спасение 🔥",
+        "description": "Применяет отмену коммита в рабочую папку без создания коммита.",
+        "why_when": "Нужно откатить несколько коммитов и объединить их в одну отмену.",
+        "terminal_algorithm": [
+            "`git revert --no-commit HEAD~3..HEAD`",
+            "`git commit -m \"revert: откат трёх коммитов\"`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-blame",
+        "command": "git blame <file>",
+        "category": "debug-rescue",
+        "category_ru": "Отладка и Спасение 🔥",
+        "description": "Показывает автора и коммит для каждой строки файла.",
+        "why_when": "Для поиска кто и когда внёс конкретное изменение в файл.",
+        "terminal_algorithm": [
+            "`git blame src/app.js`",
+            "`git blame -L 10,25 src/app.js` — только строки 10–25"
+        ],
+        "vscode_algorithm": [
+            "GitLens показывает blame прямо в редакторе рядом с каждой строкой."
+        ]
+    },
+    {
+        "id": "git-log-search",
+        "command": "git log -S <текст>",
+        "category": "debug-rescue",
+        "category_ru": "Отладка и Спасение 🔥",
+        "description": "Ищет коммиты, в которых появился или исчез указанный текст (pickaxe-поиск).",
+        "why_when": "Найти коммит, где была добавлена или удалена конкретная функция или строка кода.",
+        "terminal_algorithm": [
+            "`git log -S \"functionName\" --oneline`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-log-grep",
+        "command": "git log --grep=<паттерн>",
+        "category": "debug-rescue",
+        "category_ru": "Отладка и Спасение 🔥",
+        "description": "Фильтрует историю коммитов по совпадению в тексте сообщения.",
+        "why_when": "Поиск всех коммитов с тегом feat: или fix: в названии.",
+        "terminal_algorithm": [
+            "`git log --grep=\"feat:\" --oneline`"
+        ],
+        "vscode_algorithm": [
+            "GitLens → Search Commits (Ctrl+Shift+G, затем иконка поиска)."
+        ]
+    },
+    {
+        "id": "git-fsck",
+        "command": "git fsck",
+        "category": "debug-rescue",
+        "category_ru": "Отладка и Спасение 🔥",
+        "description": "Проверяет целостность объектов Git-репозитория и находит висящие объекты.",
+        "why_when": "После сбоя системы или подозрении на повреждение репозитория.",
+        "terminal_algorithm": [
+            "`git fsck --full`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-log-graph",
+        "command": "git log --oneline --graph",
+        "category": "info-tags",
+        "category_ru": "История и Теги",
+        "description": "Показывает компактную графическую историю коммитов с ветками.",
+        "why_when": "Быстрый визуальный обзор истории проекта и структуры веток.",
+        "terminal_algorithm": [
+            "`git log --oneline --graph --all`"
+        ],
+        "vscode_algorithm": [
+            "GitLens → Git Graph (расширение) — красивый визуальный граф."
+        ]
+    },
+    {
+        "id": "git-log-patch",
+        "command": "git log -p",
+        "category": "info-tags",
+        "category_ru": "История и Теги",
+        "description": "Показывает историю коммитов вместе с полным diff каждого изменения.",
+        "why_when": "Детальный просмотр что именно менялось в каждом коммите.",
+        "terminal_algorithm": [
+            "`git log -p`",
+            "`git log -p -3` — последние 3 коммита"
+        ],
+        "vscode_algorithm": [
+            "Клик по коммиту в GitLens показывает его полный diff."
+        ]
+    },
+    {
+        "id": "git-log-L",
+        "command": "git log -L <start>,<end>:<file>",
+        "category": "info-tags",
+        "category_ru": "История и Теги",
+        "description": "Показывает историю изменений конкретных строк файла.",
+        "why_when": "Кто и когда менял конкретную функцию (например, строки 15–30 в auth.js).",
+        "terminal_algorithm": [
+            "`git log -L 15,30:src/auth.js`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-shortlog",
+        "command": "git shortlog -sn",
+        "category": "info-tags",
+        "category_ru": "История и Теги",
+        "description": "Показывает список авторов с количеством коммитов, отсортированный по активности.",
+        "why_when": "Для просмотра вклада каждого участника в проект.",
+        "terminal_algorithm": [
+            "`git shortlog -sn`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-tag-annotated",
+        "command": "git tag -a <имя> -m \"msg\"",
+        "category": "info-tags",
+        "category_ru": "История и Теги",
+        "description": "Создаёт аннотированный тег с сообщением — для маркировки версий релизов.",
+        "why_when": "После завершения работы над версией — для создания точки v1.0.0 в истории.",
+        "terminal_algorithm": [
+            "`git tag -a v1.0.0 -m \"Первый релиз\"`",
+            "`git push origin v1.0.0`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-tag-delete",
+        "command": "git tag -d <имя>",
+        "category": "info-tags",
+        "category_ru": "История и Теги",
+        "description": "Удаляет локальный тег.",
+        "why_when": "Создали тег по ошибке или с неверным именем.",
+        "terminal_algorithm": [
+            "`git tag -d v1.0.0-beta`",
+            "Удалить на сервере: `git push origin --delete v1.0.0-beta`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-describe",
+        "command": "git describe --tags",
+        "category": "info-tags",
+        "category_ru": "История и Теги",
+        "description": "Возвращает человекочитаемое описание текущего коммита на основе ближайшего тега.",
+        "why_when": "Для автоматической генерации номера версии в скриптах сборки.",
+        "terminal_algorithm": [
+            "`git describe --tags`",
+            "Пример вывода: `v1.2.3-14-gabc1234`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-show",
+        "command": "git show <hash>",
+        "category": "info-tags",
+        "category_ru": "История и Теги",
+        "description": "Показывает содержимое и diff конкретного коммита, тега или объекта.",
+        "why_when": "Для детального просмотра что именно изменил конкретный коммит.",
+        "terminal_algorithm": [
+            "`git show a1b2c3d`",
+            "`git show HEAD~2` — два коммита назад"
+        ],
+        "vscode_algorithm": [
+            "Клик по коммиту в GitLens → откроется полный просмотр."
+        ]
+    },
+    {
+        "id": "git-diff-commits",
+        "command": "git diff <hash1> <hash2>",
+        "category": "info-tags",
+        "category_ru": "История и Теги",
+        "description": "Показывает разницу между двумя коммитами.",
+        "why_when": "Сравнение двух версий проекта или проверка что изменилось за период.",
+        "terminal_algorithm": [
+            "`git diff HEAD~5 HEAD`",
+            "`git diff v1.0.0 v1.1.0`"
+        ],
+        "vscode_algorithm": [
+            "GitLens → Compare References."
+        ]
+    },
+    {
+        "id": "git-log-author",
+        "command": "git log --author=<имя>",
+        "category": "info-tags",
+        "category_ru": "История и Теги",
+        "description": "Фильтрует историю коммитов по имени или email автора.",
+        "why_when": "Для просмотра всех коммитов конкретного разработчика.",
+        "terminal_algorithm": [
+            "`git log --author=\"Ivan\" --oneline`"
+        ],
+        "vscode_algorithm": [
+            "GitLens → Search Commits → фильтр по автору."
+        ]
+    },
+    {
+        "id": "git-config-user-name",
+        "command": "git config --global user.name \"Имя\"",
+        "category": "config-admin",
+        "category_ru": "Конфигурация",
+        "description": "Устанавливает глобальное имя пользователя для всех коммитов.",
+        "why_when": "Первоначальная настройка Git на новом компьютере.",
+        "terminal_algorithm": [
+            "`git config --global user.name \"Ivan Petrov\"`",
+            "`git config --global user.email \"ivan@email.com\"`"
+        ],
+        "vscode_algorithm": [
+            "Настройки VS Code → Git → User → Name / Email."
+        ]
+    },
+    {
+        "id": "git-config-list",
+        "command": "git config --list",
+        "category": "config-admin",
+        "category_ru": "Конфигурация",
+        "description": "Показывает все текущие настройки Git (глобальные + локальные).",
+        "why_when": "Для проверки конфигурации — имя, email, алиасы, редактор.",
+        "terminal_algorithm": [
+            "`git config --list`",
+            "`git config --list --show-origin` — показать откуда берётся каждая настройка"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-config-alias",
+        "command": "git config --global alias.<имя> <команда>",
+        "category": "config-admin",
+        "category_ru": "Конфигурация",
+        "description": "Создаёт короткий псевдоним для длинной Git-команды.",
+        "why_when": "Для ускорения работы — вместо `git log --oneline --graph` писать просто `git lg`.",
+        "terminal_algorithm": [
+            "`git config --global alias.lg \"log --oneline --graph --all\"`",
+            "Теперь можно использовать: `git lg`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-config-rerere",
+        "command": "git config --global rerere.enabled true",
+        "category": "config-admin",
+        "category_ru": "Конфигурация",
+        "description": "Включает автозапоминание разрешений конфликтов для повторного применения.",
+        "why_when": "Обучает Git: если конфликт встретится снова при rebase, Git решит его автоматически.",
+        "terminal_algorithm": [
+            "`git config --global rerere.enabled true`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-config-autocrlf",
+        "command": "git config --global core.autocrlf input",
+        "category": "config-admin",
+        "category_ru": "Конфигурация",
+        "description": "Настраивает обработку переносов строк (CRLF/LF) при коммитах.",
+        "why_when": "На Windows предотвращает конфликты из-за разных символов переноса строк.",
+        "terminal_algorithm": [
+            "Windows: `git config --global core.autocrlf true`",
+            "Mac/Linux: `git config --global core.autocrlf input`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-gc-aggressive",
+        "command": "git gc --aggressive",
+        "category": "config-admin",
+        "category_ru": "Конфигурация",
+        "description": "Запускает агрессивную сборку мусора и оптимизацию репозитория.",
+        "why_when": "Когда репозиторий сильно разросся и замедлился — для сжатия объектов.",
+        "terminal_algorithm": [
+            "`git gc --aggressive --prune=now`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-maintenance-start",
+        "command": "git maintenance start",
+        "category": "config-admin",
+        "category_ru": "Конфигурация",
+        "description": "Включает автоматическое фоновое обслуживание репозитория по расписанию.",
+        "why_when": "Для автоматической оптимизации больших репозиториев без ручного вмешательства.",
+        "terminal_algorithm": [
+            "`git maintenance start`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-update-index-chmod",
+        "command": "git update-index --chmod=+x <file>",
+        "category": "config-admin",
+        "category_ru": "Конфигурация",
+        "description": "Устанавливает бит исполняемости файла в Git (права chmod).",
+        "why_when": "Когда скрипт должен быть исполняемым, но система не сохраняет права файла.",
+        "terminal_algorithm": [
+            "`git update-index --chmod=+x deploy.sh`",
+            "`git commit -m \"chore: make deploy.sh executable\"`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-config-credential",
+        "command": "git config --global credential.helper store",
+        "category": "config-admin",
+        "category_ru": "Конфигурация",
+        "description": "Сохраняет учётные данные (логин/пароль/токен) на диске для автоматической авторизации.",
+        "why_when": "Чтобы не вводить токен GitHub каждый раз при push/pull.",
+        "terminal_algorithm": [
+            "`git config --global credential.helper store`",
+            "macOS: `git config --global credential.helper osxkeychain`"
+        ],
+        "vscode_algorithm": [
+            "VS Code автоматически управляет токенами через GitHub Auth."
+        ]
+    },
+    {
+        "id": "git-remote-prune",
+        "command": "git remote prune origin",
+        "category": "config-admin",
+        "category_ru": "Конфигурация",
+        "description": "Удаляет локальные ссылки на удалённые ветки, которых уже нет на сервере.",
+        "why_when": "После удаления веток на GitHub — для очистки локального списка.",
+        "terminal_algorithm": [
+            "`git remote prune origin`",
+            "Или при fetch: `git fetch --prune`"
+        ],
+        "vscode_algorithm": [
+            "Настройка `git.pruneOnFetch: true`."
+        ]
+    },
+    {
+        "id": "git-cat-file",
+        "command": "git cat-file -p <hash>",
+        "category": "plumbing",
+        "category_ru": "Сантехника (Plumbing)",
+        "description": "Выводит содержимое любого Git-объекта (blob, tree, commit, tag) по его хешу.",
+        "why_when": "Для понимания внутреннего устройства Git и отладки на низком уровне.",
+        "terminal_algorithm": [
+            "`git cat-file -p HEAD`",
+            "`git cat-file -t HEAD` — показать тип объекта"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-hash-object",
+        "command": "git hash-object <file>",
+        "category": "plumbing",
+        "category_ru": "Сантехника (Plumbing)",
+        "description": "Вычисляет SHA-1 хеш файла так, как его бы сохранил Git.",
+        "why_when": "Для изучения того как Git хранит данные, или для создания объекта вручную.",
+        "terminal_algorithm": [
+            "`git hash-object file.txt`",
+            "`git hash-object -w file.txt` — сохранить в объектную БД"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-ls-tree",
+        "command": "git ls-tree HEAD",
+        "category": "plumbing",
+        "category_ru": "Сантехника (Plumbing)",
+        "description": "Показывает содержимое дерева (tree-объекта) — список файлов и папок коммита.",
+        "why_when": "Для изучения структуры репозитория на уровне объектов Git.",
+        "terminal_algorithm": [
+            "`git ls-tree HEAD`",
+            "`git ls-tree -r HEAD` — рекурсивно все файлы"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-rev-parse",
+        "command": "git rev-parse HEAD",
+        "category": "plumbing",
+        "category_ru": "Сантехника (Plumbing)",
+        "description": "Преобразует ссылку (HEAD, ветку, тег) в полный SHA-1 хеш.",
+        "why_when": "Для скриптов CI/CD — получение точного хеша текущего коммита.",
+        "terminal_algorithm": [
+            "`git rev-parse HEAD`",
+            "`git rev-parse --abbrev-ref HEAD` — имя текущей ветки"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-rev-list-count",
+        "command": "git rev-list --count HEAD",
+        "category": "plumbing",
+        "category_ru": "Сантехника (Plumbing)",
+        "description": "Считает общее количество коммитов в репозитории.",
+        "why_when": "Для генерации номера сборки или статистики проекта.",
+        "terminal_algorithm": [
+            "`git rev-list --count HEAD`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-symbolic-ref",
+        "command": "git symbolic-ref HEAD",
+        "category": "plumbing",
+        "category_ru": "Сантехника (Plumbing)",
+        "description": "Показывает на какую ветку указывает HEAD (символическая ссылка).",
+        "why_when": "В скриптах для получения имени текущей ветки без лишнего текста.",
+        "terminal_algorithm": [
+            "`git symbolic-ref HEAD`",
+            "`git symbolic-ref --short HEAD` — только имя ветки"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-count-objects",
+        "command": "git count-objects -vH",
+        "category": "plumbing",
+        "category_ru": "Сантехника (Plumbing)",
+        "description": "Показывает количество и размер объектов в репозитории в читаемом формате.",
+        "why_when": "Для оценки реального размера репозитория и необходимости сборки мусора.",
+        "terminal_algorithm": [
+            "`git count-objects -vH`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "git-show-ref",
+        "command": "git show-ref",
+        "category": "plumbing",
+        "category_ru": "Сантехника (Plumbing)",
+        "description": "Показывает все локальные ссылки (ветки, теги) с их хешами.",
+        "why_when": "Для отладки и проверки всех ссылок в репозитории.",
+        "terminal_algorithm": [
+            "`git show-ref`",
+            "`git show-ref --tags` — только теги"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "gh-pr-create",
+        "command": "gh pr create",
+        "category": "github-cli",
+        "category_ru": "GitHub CLI (gh)",
+        "description": "Создаёт Pull Request на GitHub прямо из консоли.",
+        "why_when": "Закончили работу в ветке, запушили её — отправить на ревью без открытия браузера.",
+        "terminal_algorithm": [
+            "`gh pr create --title \"feat: новая фича\" --body \"Описание изменений\"`"
+        ],
+        "vscode_algorithm": [
+            "Расширение GitHub Pull Requests → иконка '+' на панели Pull Requests."
+        ]
+    },
+    {
+        "id": "gh-pr-checkout",
+        "command": "gh pr checkout <PR>",
+        "category": "github-cli",
+        "category_ru": "GitHub CLI (gh)",
+        "description": "Скачивает ветку чужого Pull Request и переключается на неё.",
+        "why_when": "Коллега попросил протестировать его PR локально на вашем компьютере.",
+        "terminal_algorithm": [
+            "`gh pr checkout 42`"
+        ],
+        "vscode_algorithm": [
+            "В панели Pull Requests нажмите иконку стрелочки ('Checkout')."
+        ]
+    },
+    {
+        "id": "gh-repo-fork",
+        "command": "gh repo fork <user/repo>",
+        "category": "github-cli",
+        "category_ru": "GitHub CLI (gh)",
+        "description": "Форкает чужой репозиторий и сразу клонирует его на локальный компьютер.",
+        "why_when": "Быстрый старт для участия в Open Source — один шаг вместо трёх.",
+        "terminal_algorithm": [
+            "`gh repo fork vuejs/core --clone`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "gh-repo-clone",
+        "command": "gh repo clone <repo>",
+        "category": "github-cli",
+        "category_ru": "GitHub CLI (gh)",
+        "description": "Клонирует репозиторий с GitHub без необходимости копировать URL.",
+        "why_when": "Удобная альтернатива `git clone` — можно написать только имя репозитория.",
+        "terminal_algorithm": [
+            "`gh repo clone user/repo`",
+            "`gh repo clone repo` — если репозиторий ваш"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    },
+    {
+        "id": "gh-issue-create",
+        "command": "gh issue create",
+        "category": "github-cli",
+        "category_ru": "GitHub CLI (gh)",
+        "description": "Создаёт новый Issue на GitHub из терминала.",
+        "why_when": "Для быстрого создания задачи или баг-репорта без открытия браузера.",
+        "terminal_algorithm": [
+            "`gh issue create --title \"Баг: кнопка не работает\" --body \"Шаги воспроизведения...\"`"
+        ],
+        "vscode_algorithm": [
+            "Расширение GitHub Issues → кнопка создания Issue."
+        ]
+    },
+    {
+        "id": "gh-pr-list",
+        "command": "gh pr list",
+        "category": "github-cli",
+        "category_ru": "GitHub CLI (gh)",
+        "description": "Показывает список открытых Pull Request'ов репозитория.",
+        "why_when": "Для быстрого просмотра текущих PR без открытия браузера.",
+        "terminal_algorithm": [
+            "`gh pr list`",
+            "`gh pr list --state all` — включая закрытые"
+        ],
+        "vscode_algorithm": [
+            "Панель Pull Requests в расширении GitHub."
+        ]
+    },
+    {
+        "id": "gh-pr-merge",
+        "command": "gh pr merge <PR>",
+        "category": "github-cli",
+        "category_ru": "GitHub CLI (gh)",
+        "description": "Выполняет слияние Pull Request прямо из терминала.",
+        "why_when": "Для быстрого мержа PR после прохождения ревью без открытия GitHub.",
+        "terminal_algorithm": [
+            "`gh pr merge 42 --squash`",
+            "`gh pr merge 42 --rebase`"
+        ],
+        "vscode_algorithm": [
+            "Панель Pull Requests → кнопка 'Merge Pull Request'."
+        ]
+    },
+    {
+        "id": "gh-release-create",
+        "command": "gh release create <tag>",
+        "category": "github-cli",
+        "category_ru": "GitHub CLI (gh)",
+        "description": "Создаёт новый релиз на GitHub с тегом и прикреплёнными файлами.",
+        "why_when": "Для публикации версии продукта с автоматической генерацией changelog.",
+        "terminal_algorithm": [
+            "`git tag v1.0.0`",
+            "`git push origin v1.0.0`",
+            "`gh release create v1.0.0 --generate-notes`"
+        ],
+        "vscode_algorithm": [
+            "Только через терминал."
+        ]
+    }
+]
